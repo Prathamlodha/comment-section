@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <style media="Screen">
+        * {
+            margin: 0;
+            padding: 0px;
+            box-sizing: border-box;
+            text-transform: capitalize;
+            font-family: verdana;
+            border: none;
+            outline: none;
+            letter-spacing: 2px;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: centre;
+            min-height: 100vh;
+            background: #222;
+
+        }
+
+        .container {
+            width: 500px;
+            text-align: right;
+
+        }
+
+        .box-container {
+            height: 200px;
+            width: 100%;
+            background: rgb(53, 52, 52);
+            box-shadow: 0 5px 15px #111;
+            border-radius: 5px;
+            padding: 15px;
+            display: none;
+        }
+
+        .box-container .box {
+            height: 80%;
+            width: 100%;
+            background: #f8f8f8;
+            border-radius: 5px;
+            padding: 10px;
+            overflow: auto;
+            text-align: left;
+        }
+
+        #input {
+            width: 100%;
+            height: 40px;
+            background: none;
+            font-size: 15px;
+            color: #fff;
+            border-bottom: 1px solid #fff;
+        }
+
+        #input:focus {
+            border-bottom: 2px solid #fff
+        }
+
+        button {
+            height: 30px;
+            width: 160px;
+            background: #2708da;
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+            margin: 10px 0;
+            font-size: 15px;
+            box-shadow: 0 3px 10px #111;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            opacity: .8;
+        }
+    </style>
+    <script src="jquery-3.6.2.js" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <input type="text" id="input" placeholder="Write Your text here.">
+        <button type="button" name="button" id="cancel">cancel</button>
+        <button type="button" name="button" id="comment">post</button>
+        <div class="box-container">
+            <div class="box"></div>
+            <button type="button" name="button" id="delete">delete</button>
+        </div>
+    </div>
+<script type="text/javascript">
+    
+    $(document).ready(function () {
+
+            $('#comment').click(function () {
+                var input = $('#input').val();
+                $('.box').append(input + '<br>');
+                $('#input').val();
+                $('.box-container').slideDown();
+
+
+            });
+            $('#cancel').click(function () {
+                $('#input').val('');
+            });
+            $('#delete').click(function () {
+                $('.box').text();
+                $('.box-container').slideUp();
+            });
+
+        });
+</script>
+</body>
+
+</html>
